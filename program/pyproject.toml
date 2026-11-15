@@ -1,0 +1,44 @@
+[project]
+name = "versuchsplan"
+version = "0.3.0"
+description = "Experimental designs and field layouts (agricolae and FielDHub remake)"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Harbers Agrarinformatik" }]
+dependencies = [
+    "flet>=0.85.1",
+    "flet-camera",      # QR-Scanner (Kamera)
+    "flet-geolocator",  # GPS-Position (freiwillig)
+    "flet-map",         # Karte fuer das Feld-Layout (mit mitgelieferten OSM-Kacheln in tiles/)
+    "segno==1.6.6",     # QR-Codes erzeugen, reines Python (der Decoder nutzt dessen Tabellen)
+    "pillow",           # Bilder laden/binarisieren fuer den QR-Decoder, PNG/JPEG-Export
+]
+
+[project.urls]
+Homepage = "https://www.harbers-agrarinformatik.de"
+
+[tool.flet]
+product = "Experiment Designer"          # Name unter dem Symbol auf dem Handy
+org = "de.example"
+copyright = "Copyright (c) 2026 Harbers Agrarinformatik"
+permissions = ["location"]         # iOS: Standort (nur wenn der Nutzer den GPS-Knopf drueckt)
+
+[tool.flet.app]
+path = "."
+
+# Splashscreen: assets/splash.png (Logo), fuer Android assets/splash_android.png.
+# Hintergrund = Hintergrundfarbe des Logos (#fefefe), damit kein Rand sichtbar wird.
+# Das App-Symbol kommt aus assets/icon.png.
+[tool.flet.splash]
+color = "#fefefe"
+dark_color = "#fefefe"
+
+[tool.flet.android]
+adaptive_icon_background = "#fefefe"
+
+# Kamera-Berechtigung fuer den QR-Scanner (bitte beim ersten Build pruefen)
+[tool.flet.android.permission]
+"android.permission.CAMERA" = true
+# Standort (GPS-Knopf). Hintergrund-Standort wird bewusst NICHT angefordert.
+"android.permission.ACCESS_FINE_LOCATION" = true
+"android.permission.ACCESS_COARSE_LOCATION" = true
