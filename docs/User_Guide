@@ -1,0 +1,176 @@
+
+---
+
+### docs/User_Guide.md
+
+```markdown
+# Experiment Designer – Detailed User Guide
+
+This guide walks you through creating a complete randomised experimental design – from choosing the design to a georeferenced field layout.
+
+---
+
+## 1. Overview of the Workflow
+
+The app guides you through **7 steps**:
+
+1. **Design** – Choose the experimental design  
+2. **Inputs** – Define treatments / factors  
+3. **Analysis** – Response variables + pre-specified α  
+4. **Location & Randomization** – GPS, heading and seed  
+5. **Generate** – Create the plan  
+6. **Result** – Exports, sketch, table  
+7. **Field layout** – Optional map placement  
+
+A progress indicator at the top shows your current position (filled circles = completed).
+
+---
+
+## 2. Step 1: Choose Design
+
+- Select the desired design from the dropdown (e.g. **LSD – Latin Square**).
+- You can also load a previously saved plan via QR code or JSON file.
+
+**Tip:** For classic field trials, RCBD and Latin Square are the most common choices. For many treatments and limited space, Alpha or Lattice designs are often better.
+
+---
+
+## 3. Step 2: Inputs (Treatments)
+
+- Tap the numbered buttons (1–8) or use **“New level”** to add more treatments.
+- Remove treatments with the × symbol.
+- The app immediately shows the resulting design size (e.g. “Square 8 × 8 = 64 plots”).
+
+For factorial designs, additional fields for the factors appear.
+
+---
+
+## 4. Step 3: Analysis
+
+### Response variables (y)
+- Enter the column names for your measurements (e.g. `yield`, `protein`).
+- Multiple variables are allowed.
+- These names appear later in the CSV, JSON and the generated analysis script.
+
+### Set significance level α in advance
+- Strongly recommended: fix α **before** data collection and store it with a timestamp.
+- This makes it verifiable that the significance level was not changed after seeing the data (protection against p-hacking).
+- The value is stored in the plan, QR code, CSV and hash.
+
+---
+
+## 5. Step 4: Location & Randomization
+
+### Field trial?
+- Toggle **“Field trial (create layout on the map)”**  
+  - **On** → Step 7 (Field layout) will appear  
+  - **Off** → for laboratory or medical experiments without spatial layout
+
+### Location and heading (optional but recommended)
+1. **Location via GPS** – capture current position  
+2. **Heading with compass** – place the phone flat on the field so that the top edge points in the row direction  
+3. Or enter Latitude, Longitude and Heading manually  
+
+**Note:** Heading reference defaults to magnetic north. The app currently uses a fixed declination of 4° (Germany).
+
+### Seed
+- The app generates a fixed seed automatically.
+- With this seed you can regenerate the exact same plan at any time.
+
+---
+
+## 6. Step 5: Generate
+
+You see a clear summary of all settings:
+
+- Design + size  
+- Response variables  
+- Significance level α  
+- Location and heading  
+- Seed  
+
+Check everything and tap **“Generate plan”**.
+
+---
+
+## 7. Step 6: Result
+
+### Reproducibility
+- **Save parameters** / **Copy parameters** → small parameter file
+- **QR code** → parameters as QR code (can be scanned later)
+
+### Export plan
+- **Save CSV** / **Save plan JSON** / **Copy plan JSON**
+- **Compact JSON** (with SHA-256 hash) – ideal for archiving or blockchain
+
+### Field sketch
+- Choose colour scale (viridis, plasma, …)
+- Export as **SVG**, **PNG** or **JPEG**
+- Optional transparent background
+- Coloured overview of the plots is shown directly
+
+### Plan table
+- First rows of the experimental plan
+- **“Rename columns …”** to rename columns
+- **“Analysis script (experimental) …”** → generate Python or R starter script
+
+---
+
+## 8. Step 7: Field layout (optional)
+
+1. Tap **“Open map and layout”**.
+2. The app opens an offline map with the plot grid.
+3. You can:
+   - **Rotate** – rotate the grid (manually or via compass)
+   - **Move** – move the grid
+   - Adjust plot size, paths and protective strips
+   - **Lock** – fix the position
+   - **To me** – centre on current GPS position
+4. When everything is correct → **Save plan**
+
+The layout is stored in the plan and included in GeoJSON/KML exports.
+
+---
+
+## 9. Practical Tips
+
+| Situation | Recommendation |
+|-----------|----------------|
+| Many plots (> 90) | Increase “Plots drawn individually on the map” in Settings or show only outline |
+| Field work outdoors | Activate Glove mode (black & yellow) in Settings |
+| Reproducibility | Always save the parameter QR code or Compact JSON with hash |
+| α | Always set it before data collection with timestamp |
+| No internet | Fully offline – tiles must be downloaded beforehand |
+
+---
+
+## 10. Settings (gear icon)
+
+- Language (English / German)
+- Colour scheme (System / Light / Dark)
+- High-contrast mode
+- Text size
+- Text colour inside plots
+- Maximum number of individually drawn plots on the map
+- Contact e-mail (used in User-Agent for map requests)
+- Duration of toast messages
+
+---
+
+## 11. Frequently Asked Questions
+
+**Can I regenerate a plan later?**  
+Yes – with the parameter JSON or QR code + the same seed you get exactly the same plan.
+
+**What happens if I change α later?**  
+The timestamp shows when α was set. Changing it after seeing data is visible and not recommended.
+
+**Does the app work without GPS?**  
+Yes. Location and heading are optional. Without them everything works except the georeferenced map view.
+
+**Are the generated analysis scripts production-ready?**  
+No – they are starters and should be checked before use.
+
+---
+
+Happy experimenting!
