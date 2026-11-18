@@ -14,6 +14,7 @@ It is a modern remake of the design functions of the R packages [agricolae](http
 
 | Step | Preview |
 |------|---------|
+| **Design** – Define design | ![Inputs](docs/screenshots/01_design.png) |
 | **Inputs** – Define treatments | ![Inputs](docs/screenshots/02_inputs.png) |
 | **Analysis** – Response variables & pre-specified α | ![Analysis](docs/screenshots/03_analysis.png) |
 | **Location & Randomization** | ![Location](docs/screenshots/04_location.png) |
