@@ -23,7 +23,7 @@ It is a modern remake of the design functions of the R packages [agricolae](http
 | **Field sketch** – Colour-coded overview | ![Field Sketch](docs/screenshots/06_field_sketch.png) |
 | **Plan table** | ![Plan](docs/screenshots/06_plan.png) |
 | **Settings** | ![Settings](docs/screenshots/settings.png) |
-| **Field layout on map** | ![Map Layout](docs/screenshots/07_map_layout.png) |
+| **Field layout on map** | ![Map Layout](docs/screenshots/07b_map_layout.png) |
 
 ---
 
